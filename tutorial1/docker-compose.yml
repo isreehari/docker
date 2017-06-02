@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  mysqldb:
-    image: mysql    
-    restart: always
+  db:
+    image: mysql:5.7  
+    restart: always    
     volumes: 
        - ./db_data:/var/lib/mysql  
     env_file: 
@@ -11,9 +11,11 @@ services:
 
   web:   
     image: eboraas/apache-php
+    depends_on: 
+        - db        
     restart: always
     volumes: 
-        - ./codeigniter/:/var/www/html/
+        - ./:/var/www/html/
     ports: 
       - "80:80"
       - "443:443"
