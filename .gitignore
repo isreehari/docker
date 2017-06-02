@@ -287,4 +287,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-/db_data/*
+db_data/*
+tutorial1/db_data/*
+tutorial2/db_data/*
